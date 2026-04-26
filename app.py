@@ -9,8 +9,8 @@ def get_db():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="rms222005",   # put your MySQL password here
-        database="library_db2"
+        password="",   # put your MySQL password here
+        database="" # put your database name here 
     )
 
 # ─────────────────────────────────────────────
