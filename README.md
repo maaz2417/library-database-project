@@ -14,15 +14,8 @@ Responsive UI: Clean interface built with Flask and Jinja2 templates.
 
 ⚙️ Installation & Setup
 Clone the repository:
+
 Bash
+
 git clone https://github.com/maaz2417/library-management-system.git
 cd library-management-system
-
-📂 Project Structure
-Plaintext
-├── app.py              # Main Flask application
-├── static/             # CSS and Image files
-├── templates/          # HTML files (Jinja2)
-├── database_schema.sql # Database export file
-└── README.md           # Project documentation
-
