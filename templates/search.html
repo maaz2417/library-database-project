@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Search Books</h1>
+<div class='card'>
+    <form method='GET' style='display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end'>
+        <div class='form-group' style='flex:1;min-width:200px'>
+            <label>Search Query</label>
+            <input type='text' name='q' value='{{ query }}' placeholder='Type here'>
+        </div>
+        <div class='form-group'>
+            <label>Search By</label>
+            <select name='by'>
+                <option value='all' {% if search_by == 'all' %}selected{% endif %}>All Fields</option>
+                <option value='title' {% if search_by == 'title' %}selected{% endif %}>Title</option>
+                <option value='author' {% if search_by == 'author' %}selected{% endif %}>Author</option>
+                <option value='category' {% if search_by == 'category' %}selected{% endif %}>Category</option>
+                <option value='isbn' {% if search_by == 'isbn' %}selected{% endif %}>ISBN</option>
+            </select>
+        </div>
+        <button type='submit' class='btn btn-blue'>Search</button>
+        {% if query %}
+            <a href='/search' class='btn btn-gray'>Clear</a>
+        {% endif %}
+    </form>
+</div>
+{% if query %}
+    <p style='font-size:13px;color:#888;margin-bottom:12px'>{{ results|length }} result(s) found for <b>{{ query }}</b></p>
+{% endif %}
+<div class='card' style='padding:0;overflow:hidden'>
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Title</th><th>Author</th><th>Category</th><th>ISBN</th><th>Available</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+            {% for b in results %}
+            <tr>
+                <td>#{{ b.book_id }}</td>
+                <td><b>{{ b.title }}</b></td>
+                <td>{{ b.author }}</td>
+                <td>{{ b.category }}</td>
+                <td>{{ b.isbn }}</td>
+                <td>{{ b.available }}</td>
+                <td>
+                    <a href='/edit/{{ b.book_id }}' class='btn btn-blue' style='font-size:12px;padding:5px 10px;margin-right:4px'>Edit</a>
+                    <a href='/delete/{{ b.book_id }}' class='btn btn-red' style='font-size:12px;padding:5px 10px' onclick="return confirm('Delete?')">Delete</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan='7' style='text-align:center;padding:40px;color:#aaa'>
+                    {% if query %}No results found{% else %}Enter a search query above{% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

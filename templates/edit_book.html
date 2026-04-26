@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Edit Book #{{ book.book_id }}</h1>
+{% if msg %}
+    {{ msg|safe }}
+{% endif %}
+<div class='card'>
+    <form method='POST'>
+        <div class='form-row'>
+            <div class='form-group'><label>Book Title *</label><input type='text' name='title' value='{{ book.title }}' required></div>
+            <div class='form-group'><label>Author *</label><input type='text' name='author' value='{{ book.author }}' required></div>
+        </div>
+        <div class='form-row'>
+            <div class='form-group'><label>Category *</label><input type='text' name='category' value='{{ book.category }}' required></div>
+            <div class='form-group'><label>ISBN</label><input type='text' name='isbn' value='{{ book.isbn }}'></div>
+        </div>
+        <div class='form-row'>
+            <div class='form-group'><label>Publisher</label><input type='text' name='publisher' value='{{ book.publisher or "" }}'></div>
+            <div class='form-group'><label>Year</label><input type='number' name='year' value='{{ book.year or "" }}'></div>
+        </div>
+        <div class='form-row'>
+            <div class='form-group'><label>Total Quantity *</label><input type='number' name='quantity' value='{{ book.quantity }}' min='1' required></div>
+            <div class='form-group'><label>Available Copies</label><input type='number' name='available' value='{{ book.available }}' min='0'></div>
+        </div>
+        <div style='display:flex;gap:8px;padding-top:16px;border-top:1px solid #f0f0f0'>
+            <button type='submit' class='btn btn-blue'>Save Changes</button>
+            <a href='/books' class='btn btn-gray'>Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

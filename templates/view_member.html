@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Member #{{ m.member_id }}</h1>
+<div class='card'>
+    <p><b>Name:</b> {{ m.name }}</p>
+    <p><b>Email:</b> {{ m.email }}</p>
+    <p><b>Phone:</b> {{ m.phone or "-" }}</p>
+    <p><b>Address:</b> {{ m.address or "-" }}</p>
+    <br>
+    <a href='/edit_member/{{ m.member_id }}' class='btn btn-blue'>Edit</a> 
+    <a href='/members' class='btn btn-gray'>Back</a>
+</div>
+{% endblock %}

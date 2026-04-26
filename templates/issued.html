@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:20px'>
+    <h1 style='margin:0'>Issued Books</h1>
+    <a href='/issue_book' class='btn btn-green'>+ Issue a Book</a>
+</div>
+<div class='card' style='padding:0;overflow:hidden'>
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Member</th><th>Book</th><th>Issue Date</th><th>Due Date</th></tr>
+        </thead>
+        <tbody>
+            {% for i in issued %}
+            <tr>
+                <td>#{{ i.issue_id }}</td>
+                <td>{{ i.member_name }}</td>
+                <td><b>{{ i.book_title }}</b></td>
+                <td>{{ i.issue_date }}</td>
+                <td>{{ i.due_date }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan='5' style='text-align:center;padding:40px;color:#aaa'>No books issued yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

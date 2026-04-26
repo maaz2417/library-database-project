@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:20px'>
+    <h1 style='margin:0'>All Members</h1>
+    <a href='/add_member' class='btn btn-green'>+ Add Member</a>
+</div>
+<div class='card' style='padding:0;overflow:hidden'>
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+            {% for m in all_members %}
+            <tr>
+                <td>#{{ m.member_id }}</td>
+                <td><b><a href="/members/{{ m.member_id }}" style="text-decoration:none;color:inherit;">{{ m.name }}</a></b></td>
+                <td>{{ m.email }}</td>
+                <td>{{ m.phone or '' }}</td>
+                <td>{{ m.address or '' }}</td>
+                <td>
+                    <a href='/edit_member/{{ m.member_id }}' class='btn btn-blue' style='font-size:12px;padding:5px 10px;margin-right:4px'>Edit</a>
+                    <a href='/delete_member/{{ m.member_id }}' class='btn btn-red' style='font-size:12px;padding:5px 10px' onclick="return confirm('Delete this member?')">Delete</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan='6' style='text-align:center;padding:40px;color:#aaa'>No members found. Add one!</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+body { font-family: Arial, sans-serif; background: #f0f0f0; margin: 0; }
+nav { background: #2c3e50; padding: 14px 24px; display: flex; gap: 16px; align-items: center; }
+nav a { color: white; text-decoration: none; font-size: 14px; }
+nav a:hover { text-decoration: underline; }
+nav .brand { font-weight: bold; font-size: 16px; margin-right: 16px; }
+.container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+.card { background: white; border-radius: 8px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+h1 { font-size: 22px; margin-bottom: 20px; }
+.btn { display: inline-block; padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; font-size: 13px; text-decoration: none; }
+.btn-blue  { background: #2980b9; color: white; }
+.btn-green { background: #27ae60; color: white; }
+.btn-red   { background: #e74c3c; color: white; }
+.btn-gray  { background: #95a5a6; color: white; }
+.btn:hover { opacity: 0.85; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: #f8f8f8; text-align: left; padding: 10px 12px; border-bottom: 2px solid #e0e0e0; font-size: 12px; color: #555; text-transform: uppercase; }
+td { padding: 10px 12px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+tr:hover td { background: #fafafa; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+label { font-size: 12px; font-weight: bold; color: #555; }
+input { padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; width: 100%; box-sizing: border-box; }
+input:focus { outline: none; border-color: #2980b9; }
+select { padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; width: 100%; box-sizing: border-box; }
+.alert-green { background: #d4edda; color: #155724; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px; }
+.alert-red   { background: #f8d7da; color: #721c24; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.stat { background: white; border-radius: 8px; padding: 20px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+.stat-number { font-size: 32px; font-weight: bold; }
+.stat-label  { font-size: 12px; color: #888; margin-top: 4px; }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <span class="brand">Library</span>
+        <a href="/">Dashboard</a>
+        <a href="/books">All Books</a>
+        <a href="/add">Add Book</a>
+        <a href="/search">Search</a>
+        <a href="/members">Members</a>
+        <a href="/add_member">Add Member</a>
+        <a href="/issue_book">Issue Book</a>
+        <a href="/issued">Issued Books</a>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

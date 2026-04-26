@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Issue Book</h1>
+{% if alert %}
+    {{ alert|safe }}
+{% endif %}
+<div class='card'>
+    <form method='POST' action='/issue'>
+        <div class='form-row'>
+            <div class='form-group'>
+                <label>Select Member *</label>
+                <select name='member_id' required>
+                    <option value=''>-- Choose Member --</option>
+                    {% for m in members %}
+                        <option value='{{ m.member_id }}'>{{ m.name }} ({{ m.email }})</option>
+                    {% else %}
+                        <option disabled>No members found — add one first</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class='form-group'>
+                <label>Select Book *</label>
+                <select name='book_id' required>
+                    <option value=''>-- Choose Book --</option>
+                    {% for b in available_books %}
+                        <option value='{{ b.book_id }}'>{{ b.title }} by {{ b.author }} [{{ b.available }} left]</option>
+                    {% else %}
+                        <option disabled>No books available right now</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class='form-row'>
+            <div class='form-group'><label>Issue Date *</label><input type='date' name='issue_date' required></div>
+            <div class='form-group'><label>Due Date *</label><input type='date' name='due_date' required></div>
+        </div>
+        <div style='display:flex;gap:8px;padding-top:16px;border-top:1px solid #f0f0f0'>
+            <button type='submit' class='btn btn-green'>Issue Book</button>
+            <a href='/issued' class='btn btn-gray'>View Issued Books</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
